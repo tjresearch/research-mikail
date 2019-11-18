@@ -1,0 +1,6 @@
+[submodule "physics-engine"]
+	path = physics-engine
+	url = git@github.com:mkhan45/physics-engine.git
+[submodule "gravity-sim-v2"]
+	path = gravity-sim-v2
+	url = git@github.com:mkhan45/gravity-sim-v2.git
