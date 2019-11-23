@@ -15,7 +15,7 @@ Universal gravitation simulator
 # Requirements
 
 ## Running:
-I've put binaries for Windows and Linux in the release section of each repository, eventually there should be a Web version
+I've put binaries for Windows and Linux in the release section of each repository and this one, eventually there will be a web version
 
 ## Building:
 
