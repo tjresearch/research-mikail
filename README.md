@@ -23,7 +23,7 @@ I've put binaries for Windows and Linux in the release section of each repositor
 
 Computer
 
-With the latest stable rust toolchain from rustup, run `cargo run --release` to compile and run
+With the latest stable rust toolchain from rustup, run `cargo run --release` to compile and run, compiling will probably take >10 minutes the first time because of all the dependencies.
 
 # Screenshots:
 //TODO
