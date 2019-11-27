@@ -1,0 +1,88 @@
+% Syslab Research Journal Template
+% By Patrick White
+% September 2019
+% version 1.1 - 9/5/2019
+
+% INSTRUCTIONS: Edit the file as appropriate and replace with your journal text. Do NOT edit
+%							any section headers or titles, tabling commands, fonts, spacing, sizes, etc.
+
+% -------  Do NOT edit this header
+\documentclass[letterpaper,11pt]{article}
+\usepackage[paperwidth=8.5in,left=1.0in,right=1.0in,top=1.0in,bottom=1.0in,paperheight=11.0in]{geometry}
+\usepackage{graphicx}
+\graphicspath{ {./} }
+\usepackage{palatino}
+\def\hrulefill{\leavevmode\leaders\hrule height 20pt\hfill\kern\z@}
+
+% ------------- DO Edit these definitions ---------------------
+\def\name{Mikail Khan}
+\def\period{5}
+\def\journalnum{9}
+\def\daterange{9/11/19-9/15/19}
+% ------------------ END ---------------------------------
+
+% Do NOT edit this
+\begin{document}
+	\thispagestyle{empty}
+	\begin{flushright}
+		{\Large Journal Report \journalnum} \\
+		\daterange\\
+		\name \\
+		Computer Systems Research Lab \\
+		Period \period, White
+		\end{flushright}
+	\hrule height 1pt
+% ------------------ END ---------------------------------%	
+	
+% ------------------- Begin Journal reporting HERE ---------------
+
+% ------ SECTION DAILY LOG -------------------------------------
+	\section*{Daily Log}
+
+	\vspace{-0.5em}
+		\subsection*{Monday November 11}
+
+                I made a super simple prototype bouncy ball simulator with a new ECS library which takes a lot less boilerplate than the other one I was using.
+
+		\subsection*{Wednesday November 13}
+
+                I finished the gravity part of the simulator and did some tweaking to the integration to improve its accuracy. Most of the work was starting the ECS and compiling th game engine. I took some shortcuts with drawing shapes along with some other things that I needed to fix to make it easier to add stuff. When I wrote my gravity sim last year, it probably took me four or five hours to get to the same point.
+
+		\subsection*{Friday November 15}
+
+                I started by refactoring a little bit and then added inelastic collisions. I did run into some memory management problems because collided planets need to be deleted and I wanted to be able to delete them while iterating, but in the end I just made a set of objects to delete so I could delete them after iterating. After adding collisions I'd reached the weekly goal, so I cleaned up the code a bit more and optimized it a bit, as well as removing the shortcuts that I'd taken earlier. I also parallelized it, but the parallelization will probably have to be removed to work with WebAssembly. It's pretty simple to change though. 
+
+                On my desktop, I can simulate about 1100 bodies at 60 iterations a second which is about as fast as the most parallelized version of my sim last year, except that the new version is a lot more robust because last year's one had some problems when more than two bodies collided simultaneously. Unfortunately, it's excessively slow in debug mode. I didn't do very much testing for debug mode, but at only 100 bodies I was only getting 15 iterations/sec, and it should be \(O(n^2)\), meaning that compiling in optimized mode makes it more than 120 times faster. I guess that for testing I can keep it to only three or four planets but I'm worried that adding trails etc. will slow debug mode down even more.  
+
+	
+% ------ SECTION TIMELINE -------------------------------------
+	\newpage
+	\section*{Timeline}
+	\begin{tabular}{|p{1in}|p{2.5in}|p{2.5in}|}
+		\hline 
+	\textbf{Date} & \textbf{Goal} & \textbf{Met}\\ \hline
+        \hline
+        Today minus 2 weeks & Finalize mechanics sim & Improved but not finalized \\
+        \hline
+        Today minus 1 weeks & Simultaneous collisions & No \\
+        \hline
+        Today  & Rewrite universal gravitation simulator & Yes, all the simulation stuff is done, the rest is just UI\\
+        \hline
+        Today plus 1 week & Gravity sim UI & Mainly a side panel for creating and deleting new bodies, also resolution scaling stuff\\
+        \hline
+        Today plus 2 weeks & Gravity sim graphs, FBDs, etc. & A lot of the work is already done from the mechanics simulator \\
+        \hline
+        Winter Goal & Feature complete gravity sim & \\
+        \hline
+     \end{tabular}
+
+
+     % ------ SECTION REFLECTION  -------------------------------------
+     \section*{Reflection}
+     Rewriting the universal gravitation simulator was pretty fun. Last year I wrote it to learn Rust and the code that I thought was great at the time looks pretty terrible to me now in a lot of places. So far, there's only about 240 lines of code. I had planned to go back to finalizing the mechanics simulator next week, but I think it's better if I finalize this one first since it's so much simpler and I'll be able to figure out problems here more easily and apply that to the mechanics simulator.
+     
+     From the mechanics simulator I learned that a right click menu really isn't enough, so I'll make a side panel. Last year's simulator was completely based on keybinds because I didn't want to learn a GUI library so now not even I can use it very well.
+
+     The one thing I'm kind of unsure about is that there's a section of my code where accessing a variable doubles performance even if I don't use the variable. I think it's a bug/oversight with the ECS library I'm using, so I'll probably open an issue. 
+
+     \end{document}

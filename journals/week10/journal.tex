@@ -1,0 +1,87 @@
+% Syslab Research Journal Template
+% By Patrick White
+% September 2019
+% version 1.1 - 9/5/2019
+
+% INSTRUCTIONS: Edit the file as appropriate and replace with your journal text. Do NOT edit
+%							any section headers or titles, tabling commands, fonts, spacing, sizes, etc.
+
+% -------  Do NOT edit this header
+\documentclass[letterpaper,11pt]{article}
+\usepackage[paperwidth=8.5in,left=1.0in,right=1.0in,top=1.0in,bottom=1.0in,paperheight=11.0in]{geometry}
+\usepackage{graphicx}
+\graphicspath{ {./} }
+\usepackage{palatino}
+\def\hrulefill{\leavevmode\leaders\hrule height 20pt\hfill\kern\z@}
+
+% ------------- DO Edit these definitions ---------------------
+\def\name{Mikail Khan}
+\def\period{5}
+\def\journalnum{10}
+\def\daterange{9/18/19-9/22/19}
+% ------------------ END ---------------------------------
+
+% Do NOT edit this
+\begin{document}
+	\thispagestyle{empty}
+	\begin{flushright}
+		{\Large Journal Report \journalnum} \\
+		\daterange\\
+		\name \\
+		Computer Systems Research Lab \\
+		Period \period, White
+		\end{flushright}
+	\hrule height 1pt
+% ------------------ END ---------------------------------%	
+	
+% ------------------- Begin Journal reporting HERE ---------------
+
+% ------ SECTION DAILY LOG -------------------------------------
+	\section*{Daily Log}
+
+	\vspace{-0.5em}
+		\subsection*{Monday November 18}
+
+                I added all the GUI boilerplate that I did for the rigidbody mechanics sim and made a super basic nonfunctional sidemenu. I also made screen resizing work more correctly but not completely. 
+
+		\subsection*{Wednesday November 20}
+
+                I made the sidemenu work for global variables like the timestep and number of iterations per frame and updated to a new version of the GUI library I'm using. I also refactored how the GUI worked a bit because it handles inputs interestingly. Next, I added a few buttons and sliders to create new planets and made an onresize method so screen scaling now works completely. With the rigidbody mechanics sim, I made it so that resizing reveals or conceals parts of the screen without changing the sizes of objects, but for this I made it scale objects with the screen. I'm not sure which one makes more sense but this one was easier to implement and I kind of forgot how the logic works for the other way. 
+
+		\subsection*{Friday November 22}
+
+                I had a doctor's appointment in the morning but I did some work on Thursday. I fixed a bug where clicking on parts of the GUI would spawn new planets which surprisingly took a lot of work, and I also made it possible to edit the properties of planets through the sidemenu after right clicking them. Right now the only editable properties are mass and radius, but maybe I should add velocity?
+                There's one bug right now where selecting an object and creating new ones at the same time might crash everything if you click fast enough. I know the general reason why it happens but the exact line it errors on doesn't make sense to me. I can make it a recoverable bug that doesn't crash the whole program but there will still be some weird behavior that I don't know how to fix.
+
+	
+% ------ SECTION TIMELINE -------------------------------------
+	\newpage
+	\section*{Timeline}
+	\begin{tabular}{|p{1in}|p{2.5in}|p{2.5in}|}
+		\hline 
+	\textbf{Date} & \textbf{Goal} & \textbf{Met}\\ \hline
+		\hline
+		Today minus 2 weeks & Simultaneous Collisions & No \\
+		\hline
+                Today minus 1 weeks & Rewrite Universal gravitation simulator & Yes, everything done but UI (and I forgot trails)\\
+		\hline
+		Today  & Gravity sim UI & Yes, I don't think there really needs to be any new features \\
+		\hline
+		Today plus 1 week & Camera controls & There's only one day \\
+		\hline
+		Today plus 2 weeks & Gravity sim graphs, FBDs, etc. & \\
+		\hline
+	\end{tabular}
+
+
+% ------ SECTION REFLECTION  -------------------------------------
+	\section*{Reflection}
+
+        The GUI went pretty well. The way the library handles input is by taking a mutable reference to the value to change, which results in me having to use a lot of arguments in the render gui method, but it's also a pretty cool way of keeping the sliders synchronized. One missing feature from the GUI is typing input. The library is pretty interesting in that it doesn't do any rendering or input handing itself, and I followed a github template repository to make everything work together so I'm not really sure how to pass keyboard typing input from the game engine to the gui library, but I also think that it's probably only a few lines of code and everthing else will work just like that. Maybe I'll open an issue on the template repository I used because it seems to be active. 
+
+        I forgot to add camera controls which are generally super easy until you take into account scaling and rotation. Luckily, I don't think I need rotation, so scaling is the only hard part. 
+        
+        I opened an issue about how my performance doubles by accessing an unused element, but there are no replies because I think they're redoing that part of the ECS library anyway. 
+
+        I'm running my os off of an ssd instead of the mechanical drive I had before and latex compiles super fast now 
+\end{document}

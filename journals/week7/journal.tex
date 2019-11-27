@@ -1,0 +1,82 @@
+% Syslab Research Journal Template
+% By Patrick White
+% September 2019
+% version 1.1 - 9/5/2019
+
+% INSTRUCTIONS: Edit the file as appropriate and replace with your journal text. Do NOT edit
+%							any section headers or titles, tabling commands, fonts, spacing, sizes, etc.
+
+% -------  Do NOT edit this header
+\documentclass[letterpaper,11pt]{article}
+\usepackage[paperwidth=8.5in,left=1.0in,right=1.0in,top=1.0in,bottom=1.0in,paperheight=11.0in]{geometry}
+\usepackage{palatino}
+\def\hrulefill{\leavevmode\leaders\hrule height 20pt\hfill\kern\z@}
+
+% ------------- DO Edit these definitions ---------------------
+\def\name{Mikail Khan}
+\def\period{5}
+\def\journalnum{7}
+\def\daterange{10/14/19-10/25/19}
+% ------------------ END ---------------------------------
+
+% Do NOT edit this
+\begin{document}
+	\thispagestyle{empty}
+	\begin{flushright}
+		{\Large Journal Report \journalnum} \\
+		\daterange\\
+		\name \\
+		Computer Systems Research Lab \\
+		Period \period, White
+		\end{flushright}
+	\hrule height 1pt
+% ------------------ END ---------------------------------%	
+	
+% ------------------- Begin Journal reporting HERE ---------------
+
+% ------ SECTION DAILY LOG -------------------------------------
+	\section*{Daily Log}
+
+	\vspace{-0.5em}
+		\subsection*{Sunday October 13}
+                Worked on improving simultaneous collisions but nothing worked
+		\subsection*{Wednesday October 16}
+                I did a lot of research on simultaneous collision solvers and the most useful information I found was from Erin Catto, the developer of Box2D and an Nvidia researcher. I tried following through some of the powerpoints slide by slide but all the implementations had some pretty major issues. 
+		\subsection*{Friday October 18}
+                I read through the code of Box2D and worked on simultaneous collision response more. I found a fix that seemed to work except nothing would bounce. I tried another technique that I found on a game dev forum to get pretty slight improvements.
+		\subsection*{Monday October 21}
+                I started working on more GUI stuff starting with improving the screen onresize function
+		\subsection*{Wednesday October 23}
+                I made graphs scale better on the x-axis so that they alwise line up by time. The way I had implemented it before made it take a while for the graphs to match up. I got annoyed that collisions didn't work so I decided to work on that some more.
+		\subsection*{Friday October 25}
+                I continued working on collisions and actually made progress. Boxes will now have 0 jitter when resting on the ground, but there's still way too much jitter for stacked objects. I'd made some pretty terribly optimized code to make things easier to debug which led to it using 90\% of (1 core) of my desktop CPU in debug mode, so I spent the rest of class optimizing. There's still a lot of easy optimizations to be made but I'll probably work on improving collisions in my free time so I'll keep it unoptomized for now. In debug mode it still takes 70\% of my desktop CPU but release mdoe takes only 20\% so it's not that big of a deal anyway.
+
+	
+% ------ SECTION TIMELINE -------------------------------------
+	\newpage
+	\section*{Timeline}
+	\begin{tabular}{|p{1in}|p{2.5in}|p{2.5in}|}
+		\hline 
+	\textbf{Date} & \textbf{Goal} & \textbf{Met}\\ \hline
+		\hline
+		Today minus 2 weeks & Graphs and improved UI & Yes \\
+		\hline
+		Today minus 1 weeks & Better simultaneous collision solver & Better, but still needs improvements \\
+		\hline
+		Today  & Complete UI and record graph data & The UI is pretty much complete but I forgot about recording graph data \\
+		\hline
+                Today plus 1 week & Finalize (record graph data, ease of use stuff) & \\
+		\hline
+		Today plus 2 weeks & One last week for simultaneous collisions & If I can't get it working by then I'll keep working on it in my nonexistent freetime \\
+		\hline
+	\end{tabular}
+
+
+% ------ SECTION REFLECTION  -------------------------------------
+	\section*{Reflection}
+			In narrative style, talk about your work this week. Successes, failures, changes to timeline, goals. This should also
+			include concrete data, e.g. snippets of code, screenshots, output, analysis, graphs, etc.
+
+                        The week before last week when I was working on better collisions was pretty unproductive. I guess I've said this before but I really thought that collisions would be easier. I finally made progress after spending like 3 weeks on this though, even if there's a lot more work to be done. The GUI stuff was pretty boring but has to be done. I'm proud that it's easy because of how I wrote everything else. There's a lot of code cleanup to be done.
+                        I hit 10,000 additions, 5,000 deletions, and 100 commits sometime this week but I think that that's pretty bloated because I've been pushing from my laptop to my desktop without squashing in between. It's 1563 sloc right now, and it was 1800ish before I did the easy optimizations/cleanup that I did, but I think I could easily get it lower if I cleaned up a bit more. 
+\end{document}

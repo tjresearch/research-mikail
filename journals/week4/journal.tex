@@ -1,0 +1,86 @@
+% Syslab Research Journal Template
+% By Patrick White
+% September 2019
+% version 1.1 - 9/5/2019
+
+% INSTRUCTIONS: Edit the file as appropriate and replace with your journal text. Do NOT edit
+%							any section headers or titles, tabling commands, fonts, spacing, sizes, etc.
+
+% -------  Do NOT edit this header
+\documentclass[letterpaper,11pt]{article}
+\usepackage[paperwidth=8.5in,left=1.0in,right=1.0in,top=1.0in,bottom=1.0in,paperheight=11.0in]{geometry}
+\usepackage{palatino}
+\def\hrulefill{\leavevmode\leaders\hrule height 20pt\hfill\kern\z@}
+
+% ------------- DO Edit these definitions ---------------------
+\def\name{Mikail Khan}
+\def\period{5}
+\def\journalnum{4}
+\def\daterange{9/23/19-9/27/19}
+% ------------------ END ---------------------------------
+
+% Do NOT edit this
+\begin{document}
+	\thispagestyle{empty}
+	\begin{flushright}
+		{\Large Journal Report \journalnum} \\
+		\daterange\\
+		\name \\
+		Computer Systems Research Lab \\
+		Period \period, White
+		\end{flushright}
+	\hrule height 1pt
+% ------------------ END ---------------------------------%	
+	
+% ------------------- Begin Journal reporting HERE ---------------
+
+% ------ SECTION DAILY LOG -------------------------------------
+	\section*{Daily Log}
+
+	\vspace{-0.5em}
+		\subsection*{Monday September 23}
+                On Monday I refactored the code that calculates the impulse of the normal force from collisions and made object.apply\_force() and object.apply\_impulse() methods to prepare for implementing CCD.
+		\subsection*{Wednesday September 25}
+                I refactored the whole collision detection/integration loop into different methods. I also added object.integrate(dt), world.handle\_collisions() and world.integrate(dt). I expected all the refactoring to be pretty easy but I ran into some problems with memory management and had to decide a few things about what was most convenient for adding things in the future.
+		\subsection*{Friday September 27}
+                I tried to implement CCD but didn't quite succeed. The process I implemented is this:
+\\
+\begin{center}
+                Make a list of times in the next timestep for which there will be a collision \\
+                  \downarrow \\
+                  For each time of impact (sorted), integrate until that time and handle collisions \\
+                  \downarrow \\
+                  Integrate with (timestep - last time of impact)
+\end{center}
+
+Once I finished implementing it, the problem actually got worse and objects would just keep bouncing erratically. The first problem I found was that impulses were getting applied twice, but fixing that didn't help very much. Near the end of class, I tried commenting out the whole CCD loop and just keeping the final part where I applied collisions and integrated and it still had the same problem, meaning that after I refactored something I changed messed it up.
+
+
+	
+% ------ SECTION TIMELINE -------------------------------------
+	\newpage
+	\section*{Timeline}
+	\begin{tabular}{|p{1in}|p{2.5in}|p{2.5in}|}
+		\hline 
+	\textbf{Date} & \textbf{Goal} & \textbf{Met}\\ \hline
+		\hline
+		Today minus 2 weeks & Resting collisions and gravity/friction & Yes but without CCD\\
+		\hline
+		Today minus 1 weeks & Functional 2D mechanics and input & Input is good but no CCD\\
+		\hline
+		Today  & CCD & No, but I think that most of the work is done and I'll just have to spend some time debugging, but it could end up taking much longer than expected\\
+		\hline
+                Today plus 1 week & CCD & I thought that I'd be able to finish this week and even though theoretically refactoring was the longest part of implementing CCD I think I should give myself extra time to finish it.\\
+		\hline
+		Today plus 2 weeks & Proper GUI &  \\
+		\hline
+	\end{tabular}
+
+
+% ------ SECTION REFLECTION  -------------------------------------
+	\section*{Reflection}
+			In narrative style, talk about your work this week. Successes, failures, changes to timeline, goals. This should also
+			include concrete data, e.g. snippets of code, screenshots, output, analysis, graphs, etc. \\
+
+                        Refactoring was cool and made the code much easier to read and navigate, as well as enabling me to implement by CCD algorithm without duplicating hundreds of lines of code. When CCD didn't work at first, I thought that my CCD algorithm was flawed, but because it still doesn't work without CCD I think that the problem must be somewhere else. I hope that I'll be able to fix CCD next week but I'm a bit apprehensive since I've found a lot less documentation on actually implementing CCD than for collisions/friction etc.
+\end{document}
