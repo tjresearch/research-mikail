@@ -1,0 +1,96 @@
+% Syslab Research Journal Template
+% By Patrick White
+% September 2019
+% version 1.1 - 9/5/2019
+
+% INSTRUCTIONS: Edit the file as appropriate and replace with your journal text. Do NOT edit
+%							any section headers or titles, tabling commands, fonts, spacing, sizes, etc.
+
+% -------  Do NOT edit this header
+\documentclass[letterpaper,11pt]{article}
+\usepackage[paperwidth=8.5in,left=1.0in,right=1.0in,top=1.0in,bottom=1.0in,paperheight=11.0in]{geometry}
+\usepackage{graphicx}
+\graphicspath{ {./} }
+\usepackage{palatino}
+\def\hrulefill{\leavevmode\leaders\hrule height 20pt\hfill\kern\z@}
+
+% ------------- DO Edit these definitions ---------------------
+\def\name{Mikail Khan}
+\def\period{5}
+\def\journalnum{11}
+\def\daterange{9/25/19-12/6/19}
+% ------------------ END ---------------------------------
+
+% Do NOT edit this
+\begin{document}
+	\thispagestyle{empty}
+	\begin{flushright}
+		{\Large Journal Report \journalnum} \\
+		\daterange\\
+		\name \\
+		Computer Systems Research Lab \\
+		Period \period, White
+		\end{flushright}
+	\hrule height 1pt
+% ------------------ END ---------------------------------%	
+	
+% ------------------- Begin Journal reporting HERE ---------------
+
+% ------ SECTION DAILY LOG -------------------------------------
+	\section*{Daily Log}
+
+	\vspace{-0.5em}
+		\subsection*{Monday November 25}
+
+                I added camera controls via the arrows, WASD. I also added pausing and cleaned up some code, and finally fixed an unrecoverable error. I added dragging with middle click later; it doesn't scale perfectly 1:1 and I'm not sure why, but it's still completely useable.
+
+		\subsection*{Wednesday-Friday November 27-29}
+
+                I added previews and improved initial window creation. I think that the window creation worked perfectly before if there was only one monitor, but now it works with more than one so that's cool. 
+
+		\subsection*{Monday December 2}
+               
+                I updated my entity component system library to the newest git master so that I could start adding trails. There's a somewhat significant performance decrease from about 1100 bodies at 60 iterations per second to around 900 on my desktop. I think it's fixable but I'm not sure how and I think I'll only look at it when the current git master gets published into an actual release. 
+
+		\subsection*{Wednesday December 4}
+
+                I added trails and made escape hide the side menu. I also added the entity component system library as a submodule because there might be breaking changes if I just keep cloning the newest version onto new computers.
+
+		\subsection*{Friday December 6}
+
+                Before, I wasn't fully using entity component system design; I was only using entities and components. While preparing to add new things to the GUI I realized that I really shouldn't have a struct with like 20 fields and using the entity component system fully would fix that, so I started to switch. It's a pretty long/annoying process so there's still a bit left to be done, but I'm most of the way there.
+                I also started work on giving previews a different simulation rate than normal bodies so that you can see the full path more quickly.
+
+% ------ SECTION TIMELINE -------------------------------------
+	\newpage
+	\section*{Timeline}
+	\begin{tabular}{|p{1in}|p{2.5in}|p{2.5in}|}
+		\hline 
+	\textbf{Date} & \textbf{Goal} & \textbf{Met}\\ \hline
+		\hline
+		Today minus 2 weeks & Rewrite Universal Gravitation & Yes\\
+		\hline
+		Today minus 1 weeks & Gravity Sim UI & Yes, it just needs a few more sliders but nothing major \\
+		\hline
+		Today  & Camera Controls & Yes\\
+		\hline
+		Today plus 1 week & Graphs, FBDs, etc. & No, I kind of got sidetracked\\
+		\hline
+		Today plus 2 weeks & Finish adding systems and start on graphs, fbds, etc. & Switching to systems will also make adding graphs etc. easier \\
+		\hline
+	\end{tabular}
+
+
+% ------ SECTION REFLECTION  -------------------------------------
+	\section*{Reflection}
+			In narrative style, talk about your work this week. Successes, failures, changes to timeline, goals. This should also
+			include concrete data, e.g. snippets of code, screenshots, output, analysis, graphs, etc.
+
+                        Adding camera controls was easier than I expected because I realized that instead of drawing everything in a different place I can just actually move the camera viewport. The only weird thing is how middle click drag movement works because I don't at all understand why it's not 1 to 1. 
+                        I had to spend a lot of time with the entity component system which should've already been done. I decided to use the fastest library but it's not very mature at all. It's definitely easier to keep going with this library instead of switching to a more complete one though; the biggest problem is that there's no online documentation so I have to build it myself everytime I git pull.
+                        The performance decrease happens because the newer version of the ECS library wants a mutable reference to query objects when I'm querying entities even if I don't actually change the entities. Before, it was fine with an immutable one, so I don't understand why that changed.
+
+                        I always want to include screenshots at the end of these but videos are way better and we don't have harry potter paper, so here's a link (the url is kind of sketchy but the site is convenient to upload to).
+                        \\[2.5mm]
+                        https://webm.red/bC7H
+\end{document}
