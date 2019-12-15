@@ -1,0 +1,85 @@
+% Syslab Research Journal Template
+% By Patrick White
+% September 2019
+% version 1.1 - 9/5/2019
+
+% INSTRUCTIONS: Edit the file as appropriate and replace with your journal text. Do NOT edit
+%							any section headers or titles, tabling commands, fonts, spacing, sizes, etc.
+
+% -------  Do NOT edit this header
+\documentclass[letterpaper,11pt]{article}
+\usepackage[paperwidth=8.5in,left=1.0in,right=1.0in,top=1.0in,bottom=1.0in,paperheight=11.0in]{geometry}
+\usepackage{graphicx}
+\graphicspath{ {./} }
+\usepackage{palatino}
+\def\hrulefill{\leavevmode\leaders\hrule height 20pt\hfill\kern\z@}
+
+% ------------- DO Edit these definitions ---------------------
+\def\name{Mikail Khan}
+\def\period{5}
+\def\journalnum{12}
+\def\daterange{12/9/19-12/13/19}
+% ------------------ END ---------------------------------
+
+% Do NOT edit this
+\begin{document}
+	\thispagestyle{empty}
+	\begin{flushright}
+		{\Large Journal Report \journalnum} \\
+		\daterange\\
+		\name \\
+		Computer Systems Research Lab \\
+		Period \period, White
+		\end{flushright}
+	\hrule height 1pt
+% ------------------ END ---------------------------------%	
+	
+% ------------------- Begin Journal reporting HERE ---------------
+
+% ------ SECTION DAILY LOG -------------------------------------
+	\section*{Daily Log}
+
+	\vspace{-0.5em}
+		\subsection*{Monday December 9}
+                  I did some work on refactoring the physics loop into systems. Before, I had everything act like multiple systems that happened to be run in sequence, but since I need to run the physics loop different times for previews and physical bodies I need to make one main system for it. I'm still trying to keep collisions, integration, and gravity in separate methods though because it's easier to edit that way.
+
+		\subsection*{Wednesday December 11}
+                  I did something weird with functional programming to get the previews to go faster than physical bodies but there's a huge performance hit that seems unreasonable to me. I also added a slider for the number of preview iterations so that it's possible to set the speed at which previews simulate relative to the number of normal iterations. The performance hit depends on how many preview iterations there are even if there are no previews on screen, which doesn't seem right.
+
+		\subsection*{Friday December 13}
+                After trying to fix the performance hit, I decided to switch ECS libraries. I really thought I wouldn't have to, but since it's actually useful to have hundreds of iterations for the preview I think this is a case where performance actually matters as opposed to one where I just want it to go fast. 
+                Switching to the new library without changing any of the code resulted in 120 errors, which is pretty impressive for only around 1200 lines of code. By the end of the class I'd had it down to around 90, and as of writing this there's none and all that's left for switching is rewriting the physics code, which should just mean switching some function names.
+
+	
+% ------ SECTION TIMELINE -------------------------------------
+	\newpage
+	\section*{Timeline}
+        I think I messed up last week's timeline since it was a two week long journal but I treated it as if it were one.
+        \\[.5cm]
+	\begin{tabular}{|p{1in}|p{2.5in}|p{2.5in}|}
+		\hline 
+	\textbf{Date} & \textbf{Goal} & \textbf{Met}\\ \hline
+		\hline
+		Today minus 2 weeks & Camera Controls & Yes \\
+		\hline
+		Today minus 1 weeks & Graphs, UI, etc. & No \\
+		\hline
+		Today & Finish adding systems & Theoretically most of the work is done but I've learned to be less optimistic\\
+		\hline
+		Today plus 1 week & Graphs, FBDs, etc. &  \\
+		\hline
+		Today plus 2 weeks & Finalize gravity sim & This probably means working on graphs and FBDs more\\
+		\hline
+                Winter goal & Feature-complete gravity sim & Everything except for graphs and FBDs, which are mostly done from the mechanics sim\\
+                \hline
+	\end{tabular}
+
+
+% ------ SECTION REFLECTION  -------------------------------------
+	\section*{Reflection}
+			In narrative style, talk about your work this week. Successes, failures, changes to timeline, goals. This should also
+			include concrete data, e.g. snippets of code, screenshots, output, analysis, graphs, etc.
+
+
+                        Most of the work I did on Monday and Wednesday isn't used because I switched ECS libraries, but it helped me think some things through better. Switching ECS libraries is honestly easier than I thought but it makes sense since I don't actually have to change any logic. I could've avoided all these problems if I'd gone with the more tested, mature library instead of the faster one. I kind of jumped the gun since the faster one is most likely going to take over in the next year since the maintainer/writer of the older one has decided to switch. The older one is also much better documented and I have last year's gravity simulator as reference so I think everything will be easier from here. I'll most likely also use it for my wave lab simulator since I think it'll be pretty similar to the gravity sim.
+\end{document}
