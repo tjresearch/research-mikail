@@ -26,6 +26,16 @@ Computer
 With the latest stable rust toolchain from rustup, run `cargo run --release` to compile and run; compiling will probably take >10 minutes the first time because of all the dependencies.
 Using [sccache](https://github.com/mozilla/sccache) will speed up compile times significantly if you compile both as you won't have to recompile most dependencies.
 
-# Screenshots:
-//TODO
+# Screenshots/GIFs (pronounced with a J sound):
 
+## Rigidbody mechanics sim
+
+![](rigid.gif)
+
+## Universal Gravitation
+
+![](orbit.gif)
+
+![](flawed_orbit.gif)
+
+![](cluster.gif)
