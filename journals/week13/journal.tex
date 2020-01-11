@@ -1,0 +1,84 @@
+% Syslab Research Journal Template
+% By Patrick White
+% September 2019
+% version 1.1 - 9/5/2019
+
+% INSTRUCTIONS: Edit the file as appropriate and replace with your journal text. Do NOT edit
+%							any section headers or titles, tabling commands, fonts, spacing, sizes, etc.
+
+% -------  Do NOT edit this header
+\documentclass[letterpaper,11pt]{article}
+\usepackage[paperwidth=8.5in,left=1.0in,right=1.0in,top=1.0in,bottom=1.0in,paperheight=11.0in]{geometry}
+\usepackage{graphicx}
+\graphicspath{ {./} }
+\usepackage{palatino}
+\def\hrulefill{\leavevmode\leaders\hrule height 20pt\hfill\kern\z@}
+
+% ------------- DO Edit these definitions ---------------------
+\def\name{Mikail Khan}
+\def\period{5}
+\def\journalnum{13}
+\def\daterange{9/2/19-9/6/19}
+% ------------------ END ---------------------------------
+
+% Do NOT edit this
+\begin{document}
+	\thispagestyle{empty}
+	\begin{flushright}
+		{\Large Journal Report \journalnum} \\
+		\daterange\\
+		\name \\
+		Computer Systems Research Lab \\
+		Period \period, White
+		\end{flushright}
+	\hrule height 1pt
+% ------------------ END ---------------------------------%	
+	
+% ------------------- Begin Journal reporting HERE ---------------
+
+% ------ SECTION DAILY LOG -------------------------------------
+	\section*{Daily Log}
+
+	\vspace{-0.5em}
+		\subsection*{Monday January 6}
+
+                My goal had been to finish adding graphs the week before break, and I finished everything other than actually drawing the graph. I had planned to use the same drawing method as I did for the mechanics simulator, but I decided to look into the GUI library's graph component. Because I feel like screen space is more important with this simulator, having a graph window that's moveable and expandible seemed a lot nicer than one that has to be static. I do lose a lot of control though.
+
+		\subsection*{Wednesday January 8}
+
+                I refactored a lot of things because after two weeks of working on it minimally it was kind of confusing. I kind of sloppily tacked on my graph drawing system from the mechanics simulator but there were some issues that were unaccounted for since this simulator has camera movement and scaling, so I was gonna have to pass the resolution etc. to the graph drawing system. The GUI library already has access to that, so I decided to stick with it. I think that ideally I should improve my own graph drawing system to support moving and scaling the graphs, but that would take at least a week.
+
+		\subsection*{Friday January 10}
+
+                I added the graphs to the GUI as a second window. Right now you can only graph speed and the labels are wrong, but those should be simple enough to fix. I realized that it's kind of hard to tell what graph corresponds to what body though. There's also no way to remove graphs right now but that's also a simple fix. There's a lot of things I could do to make the code nicer, but it does everything it needs to do.
+
+	
+% ------ SECTION TIMELINE -------------------------------------
+	\newpage
+	\section*{Timeline}
+	\begin{tabular}{|p{1in}|p{2.5in}|p{2.5in}|}
+		\hline 
+	\textbf{Date} & \textbf{Goal} & \textbf{Met}\\ \hline
+		\hline
+		Today minus 2 weeks & Graphs, UI, etc. & Graphs need some more busywork mostly \\
+		\hline
+		Today minus 1 weeks & Finish adding systems & Yes \\
+		\hline
+		Today  & Graphs, FBDs, etc. & FBDs are not really started \\
+		\hline
+		Today plus 1 week & Import/export preset scenes & I'd like to be able to drag and drop scenes into an existing world instead of resetting everything. This wasn't really something I'd planned to add when I started. \\
+		\hline
+                Today plus 2 weeks & Import/export preset scenes & I don't think I'll be able to finish it in one week.\\
+		\hline
+	\end{tabular}
+
+
+% ------ SECTION REFLECTION  -------------------------------------
+	\section*{Reflection}
+			In narrative style, talk about your work this week. Successes, failures, changes to timeline, goals. This should also
+			include concrete data, e.g. snippets of code, screenshots, output, analysis, graphs, etc.
+
+                        As expected UI things are kind of annoying. I'm not super satisfied with using the GUI library to draw graphs since it's kind of minimal and if I want to add new features I don't think I'd be able to. It does look nicer than what I had before though. 
+                        I kind of forgot about FBDs. They definitely can't be done through the GUI library. Unlike with the mechanics simulator, I'm not storing all the forces acting on an object before applying them, so to make an FBD I'll probably have to recalculate things each frame, but I think that's fine since an FBD in which there's more than 10 forces acting on an object would be hard to read anyway.
+                        Being able to import/export new scenes will be pretty cool. I think serializing the whole simulation will be pretty easy, but I need to make sure I'm not saving trails and previews. The GUI part will definitely be the hardest, so to start out I think I'll just make it so that you can load saved scenarios at startup.
+\end{document}
