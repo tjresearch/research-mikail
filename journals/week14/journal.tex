@@ -1,0 +1,77 @@
+% Syslab Research Journal Template
+% By Patrick White
+% September 2019
+% version 1.1 - 9/5/2019
+
+% INSTRUCTIONS: Edit the file as appropriate and replace with your journal text. Do NOT edit
+%							any section headers or titles, tabling commands, fonts, spacing, sizes, etc.
+
+% -------  Do NOT edit this header
+\documentclass[letterpaper,11pt]{article}
+\usepackage[paperwidth=8.5in,left=1.0in,right=1.0in,top=1.0in,bottom=1.0in,paperheight=11.0in]{geometry}
+\usepackage{graphicx}
+\graphicspath{ {./} }
+\usepackage{palatino}
+\def\hrulefill{\leavevmode\leaders\hrule height 20pt\hfill\kern\z@}
+
+% ------------- DO Edit these definitions ---------------------
+\def\name{Mikail Khan}
+\def\period{5}
+\def\journalnum{14}
+\def\daterange{1/13/20-1/17/20}
+% ------------------ END ---------------------------------
+
+% Do NOT edit this
+\begin{document}
+	\thispagestyle{empty}
+	\begin{flushright}
+		{\Large Journal Report \journalnum} \\
+		\daterange\\
+		\name \\
+		Computer Systems Research Lab \\
+		Period \period, White
+		\end{flushright}
+	\hrule height 1pt
+% ------------------ END ---------------------------------%	
+	
+% ------------------- Begin Journal reporting HERE ---------------
+
+% ------ SECTION DAILY LOG -------------------------------------
+	\section*{Daily Log}
+
+	\vspace{-0.5em}
+		\subsection*{Monday January 13}
+                On Monday only speed graphs had been implemented so I added X velocity and y velocity graphs. I realized that a lot of code was duplicated and I wanted to learn how rust macros work so I decided to write a macro. As it turns out, macros in rust are a lot easier and safer than in C++ so I ended up writing a few of them to just generally improve ergonomics and legiblity. I also added a button to remove all graphs. You can kind of choose which graphs are displayed by removing all of them and then redisplaying only the ones you want, but I want to make a better system sometime.
+                \subsection*{Wednesday January 15}
+                I implemented serializing the whole world and added a text input to save everything. Right now I'm serializing to .ron files, or rusty object notation. It seems to be the standard for Rust and it's human legible, but it's still kind of ugly. The filesizes are pretty tiny as well so I don't think it makes sense to switch to anything else.
+                \subsection*{Friday January 17}
+                I implemented deserialization and added a load world button and text input. The text input didn't work right because I wasn't sending the gui library the right information so I fixed that. I also made a few preset scenarios like a binary star system and over the weekend I added a few more. Over the weekend I also added a button to follow the selected body as well as a disable trails button. It looks really trippy with the binary and nested star systems. I want to add a way to make the trails relative to the selected body so that the nested star system looks better, but that's a much harder problem to solve and I'm not sure if I'll get to it.
+
+
+                % ------ SECTION TIMELINE -------------------------------------
+                \newpage
+                \section*{Timeline}
+                \begin{tabular}{|p{1in}|p{2.5in}|p{2.5in}|}
+                   \hline 
+                   \textbf{Date} & \textbf{Goal} & \textbf{Met}\\ \hline
+                   \hline
+                   Today minus 2 weeks & Finish adding systems & Yes\\
+                   \hline
+                   Today minus 1 weeks & Graphs, FBDs, etc.& FBDs aren't really started\\
+                   \hline
+                   Today  & Import/export preset scenes & Yes, there's no real GUI but the text input works fine\\
+                   \hline
+                   Today plus 1 week & Polish GUI & Instead of a textinput for loading scenes I want a list with a button for each file in the folder. I also want a top menu bar since the sidemenu is getting pretty cluttered.\\
+                   \hline
+                   Today plus 2 weeks & FBDs &  \\
+                   \hline
+                \end{tabular}
+
+
+                % ------ SECTION REFLECTION  -------------------------------------
+                \section*{Reflection}
+                In narrative style, talk about your work this week. Successes, failures, changes to timeline, goals. This should also
+                include concrete data, e.g. snippets of code, screenshots, output, analysis, graphs, etc.
+
+                Macros are pretty cool. I expected them to make things less legible but things are definitely more legible now just because there's so much less code. Before, I had doubts about whether or not the way I implemented graphs was good since there was so much work to add a new type of graph, but since all of it can be done through a few macros it's pretty easy now. Serializing and deserializing was harder than I expected, but still not that hard. Last week I said that I wanted to be able to drag and drop scenes into the existing world, but I don't think I have time to add that if I want to at least finish the wave lab simulator by the end of the year. I think everything's almost finalized; THe biggest thing I have to add is FBDs, which might be troublesome since I can't use the GUI library for it. 
+                \end{document}
