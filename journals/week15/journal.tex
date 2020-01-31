@@ -1,0 +1,83 @@
+% Syslab Research Journal Template
+% By Patrick White
+% September 2019
+% version 1.1 - 9/5/2019
+
+% INSTRUCTIONS: Edit the file as appropriate and replace with your journal text. Do NOT edit
+%							any section headers or titles, tabling commands, fonts, spacing, sizes, etc.
+
+% -------  Do NOT edit this header
+\documentclass[letterpaper,11pt]{article}
+\usepackage[paperwidth=8.5in,left=1.0in,right=1.0in,top=1.0in,bottom=1.0in,paperheight=11.0in]{geometry}
+\usepackage{graphicx}
+\graphicspath{ {./} }
+\usepackage{palatino}
+\def\hrulefill{\leavevmode\leaders\hrule height 20pt\hfill\kern\z@}
+
+% ------------- DO Edit these definitions ---------------------
+\def\name{Mikail Khan}
+\def\period{5}
+\def\journalnum{15}
+\def\daterange{1/20/20-1/24/20}
+% ------------------ END ---------------------------------
+
+% Do NOT edit this
+\begin{document}
+	\thispagestyle{empty}
+	\begin{flushright}
+		{\Large Journal Report \journalnum} \\
+		\daterange\\
+		\name \\
+		Computer Systems Research Lab \\
+		Period \period, White
+		\end{flushright}
+	\hrule height 1pt
+% ------------------ END ---------------------------------%	
+	
+% ------------------- Begin Journal reporting HERE ---------------
+
+% ------ SECTION DAILY LOG -------------------------------------
+	\section*{Daily Log}
+
+	\vspace{-0.5em}
+		\subsection*{Monday January 20}
+
+                I refactored some of the GUI drawing stuff and then added a button to center the camera around the selected body continuously. It makes some pretty cool results. I also added various convenience buttons such as delete all bodies, toggle trails, and switched the remove graph button to a toggle graph button.
+
+		\subsection*{Wednesday January 22}
+
+                I added a top main menu bar as is seen in most programs. Instead of a list of buttons and sliders, it has buttons which create submenus. Currently, the top menu is used to edit global variables such as the timestep, and it's also used to save and load scenarios. I made a nice menu for loading scenarios instead of text input, but saving is still a text input. I also added a microprofiling library which tells me that most of the performance is lost to the gui and just drawing everything, meaning that I don't really have to optimize physics. 
+
+		\subsection*{Friday January 24}
+
+                I refactored a lot and added the ability to make trails relative to the selected body. which make some super cool results and patterns. I also added a red outline to the selected body to make things clearer, although it's kind of ugly. I also refactored more stuff and made various tweaks to the gui.
+
+	
+% ------ SECTION TIMELINE -------------------------------------
+	\newpage
+	\section*{Timeline}
+	\begin{tabular}{|p{1in}|p{2.5in}|p{2.5in}|}
+		\hline 
+	\textbf{Date} & \textbf{Goal} & \textbf{Met}\\ \hline
+		\hline
+		Today minus 2 weeks & Graph, FBDs, etc. & graphs done \\
+		\hline
+		Today minus 1 weeks & import/export scenes & yes \\
+		\hline
+		Today  & Polish gui & Yes, there's a few problems still but I think I'd need user feedback to improve it \\
+		\hline
+		Today plus 1 week & FBDs & I worked a little bit on adding vector graphing which I already did for the mechanics sim. \\
+		\hline
+                Today plus 2 weeks & Start wave lab sim & I don't think I'll be able to finish electronics/magnetism this year but wave labs might be feasible.\\
+		\hline
+	\end{tabular}
+
+
+% ------ SECTION REFLECTION  -------------------------------------
+	\section*{Reflection}
+			In narrative style, talk about your work this week. Successes, failures, changes to timeline, goals. This should also
+			include concrete data, e.g. snippets of code, screenshots, output, analysis, graphs, etc.
+
+                        I think that I'm basically done with the gravity sim. In general I think it's pretty easy to understand and use. I think that TJ physics is gonna start the universal gravitation unit soon so I'd like to show it to a physics teacher. 
+                        Relative trails and following a specific body isn't something that I did last year but it makes some really cool results. I added some pictures in the pictures folder of my research github repository, but I think it works best if you use it yourself. It turns out the the GUI library I'm using requires MSVC for compiling on windows, so I can't cross compile it anymore. I've been trying to find someone willing to compile on windows for me but it needs the windows visual studio stuff which is like 20 GB+. 
+\end{document}
