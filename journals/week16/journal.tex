@@ -1,0 +1,82 @@
+% Syslab Research Journal Template
+% By Patrick White
+% September 2019
+% version 1.1 - 9/5/2019
+
+% INSTRUCTIONS: Edit the file as appropriate and replace with your journal text. Do NOT edit
+%							any section headers or titles, tabling commands, fonts, spacing, sizes, etc.
+
+% -------  Do NOT edit this header
+\documentclass[letterpaper,11pt]{article}
+\usepackage[paperwidth=8.5in,left=1.0in,right=1.0in,top=1.0in,bottom=1.0in,paperheight=11.0in]{geometry}
+\usepackage{graphicx}
+\graphicspath{ {./} }
+\usepackage{palatino}
+\def\hrulefill{\leavevmode\leaders\hrule height 20pt\hfill\kern\z@}
+
+% ------------- DO Edit these definitions ---------------------
+\def\name{Mikail Khan}
+\def\period{5}
+\def\journalnum{16}
+\def\daterange{1/27/20-1/31/20}
+% ------------------ END ---------------------------------
+
+% Do NOT edit this
+\begin{document}
+	\thispagestyle{empty}
+	\begin{flushright}
+		{\Large Journal Report \journalnum} \\
+		\daterange\\
+		\name \\
+		Computer Systems Research Lab \\
+		Period \period, White
+		\end{flushright}
+	\hrule height 1pt
+% ------------------ END ---------------------------------%	
+	
+% ------------------- Begin Journal reporting HERE ---------------
+
+% ------ SECTION DAILY LOG -------------------------------------
+	\section*{Daily Log}
+
+	\vspace{-0.5em}
+		\subsection*{Monday January 27}
+
+                I fixed a bug, cleaned up some code, and added a red outline to selected bodies.
+
+		\subsection*{Wednesday January 29}
+
+                I added basic acceleration graphing in the same way as I did with the mechanics sim. The opacity of older velocities decreases so the brightest one is the current one, and it only saves the last 25 frames. Graphing the acceleration of an orbiting body looks like radar. I also refactored the gui library wrapper and moved more stuff from the sidepanel to the top gui bar.
+                
+		\subsection*{Friday January r1}
+
+                Honestly the acceleration graph is super boring and it's practically the same as an FBD. Adding FBDs would also increase the complexity of the graphing systems a lot. Instead, I decided to just polish the UI a bunch. I made the top bar a lot more important, so that now the sidepanel is only used with selected entities. I think it's a lot simpler and easy to understand now. I also added a slight radius around the mouse so that you don't have to click exactly on a body to select it. The last thing I added was a help menu.
+
+	
+% ------ SECTION TIMELINE -------------------------------------
+	\newpage
+	\section*{Timeline}
+	\begin{tabular}{|p{1in}|p{2.5in}|p{2.5in}|}
+		\hline 
+	\textbf{Date} & \textbf{Goal} & \textbf{Met}\\ \hline
+		\hline
+		Today minus 2 weeks & Import/export scenes & Yes\\
+		\hline
+		Today minus 1 weeks & Polish GUI & I think it's nice now\\
+		\hline
+		Today  & FBDs & Acceleration graphs but no FBDs \\
+		\hline
+                Today plus 1 week & Start wave lab sim & Probably just getting the ECS stuff down\\
+		\hline
+		Today plus 2 weeks & Working wave simulation & Waves should work but limited access to different emitters etc.  \\
+		\hline
+	\end{tabular}
+
+
+% ------ SECTION REFLECTION  -------------------------------------
+	\section*{Reflection}
+			In narrative style, talk about your work this week. Successes, failures, changes to timeline, goals. This should also
+			include concrete data, e.g. snippets of code, screenshots, output, analysis, graphs, etc.
+
+                        I think I'm done with the gravity sim for now. I thought FBDs would be interesting but now I realize that they'd basically all be the same. I still want to add them to the mechanics sim though, although I'll have to fix simultaneous collisions there first. The GUI is fairly nice to use now, and I've added a few keyboard shortcuts. There are still some things that are a bit annoying, but they'd take a while to fix and they're just supplemental. I'm looking forwards to starting the wave lab sim. I think it will be fairly simple but I'm not sure how to group wavelets into waves, or if that's even necessary. I have written up a rough plan though. I've also decided to complexity rewrite the mechanics sim in my freetime because I want to.
+\end{document}
