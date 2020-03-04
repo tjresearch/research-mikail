@@ -1,0 +1,91 @@
+% Syslab Research Journal Template
+% By Patrick White
+% September 2019
+% version 1.1 - 9/5/2019
+
+% INSTRUCTIONS: Edit the file as appropriate and replace with your journal text. Do NOT edit
+%							any section headers or titles, tabling commands, fonts, spacing, sizes, etc.
+
+% -------  Do NOT edit this header
+\documentclass[letterpaper,11pt]{article}
+\usepackage[paperwidth=8.5in,left=1.0in,right=1.0in,top=1.0in,bottom=1.0in,paperheight=11.0in]{geometry}
+\usepackage{graphicx}
+\graphicspath{ {./} }
+\usepackage{palatino}
+\def\hrulefill{\leavevmode\leaders\hrule height 20pt\hfill\kern\z@}
+
+% ------------- DO Edit these definitions ---------------------
+\def\name{Mikail Khan}
+\def\period{5}
+\def\journalnum{19}
+\def\daterange{2/24/20-2/28/20}
+% ------------------ END ---------------------------------
+
+% Do NOT edit this
+\begin{document}
+	\thispagestyle{empty}
+	\begin{flushright}
+		{\Large Journal Report \journalnum} \\
+		\daterange\\
+		\name \\
+		Computer Systems Research Lab \\
+		Period \period, White
+		\end{flushright}
+	\hrule height 1pt
+% ------------------ END ---------------------------------%	
+	
+% ------------------- Begin Journal reporting HERE ---------------
+
+% ------ SECTION DAILY LOG -------------------------------------
+	\section*{Daily Log}
+
+	\vspace{-0.5em}
+		\subsection*{Monday February 24}
+
+                I started working on barrier initialization and drawing. I was thinking of adding the ability to create convex polygon barriers but I think I'm just going to have line barriers with adjustable thickness along with circle variables. People will still be able to create shapes by just making multiple line barriers and it takes a huge amount of work off since I don't have to make much UI stuff. It probably will impact performance a bit but I don't think it will matter compared with how the number of wavelets affects things. 
+
+		\subsection*{Wednesday February 26}
+
+                I started on barrier collisions. One of the more annoying problems I've run into is that I'm not quite sure what coordinate system the collision detection library uses. It doesn't matter with wavelets because they're all the same relatively to each other, so I didn't realize that my whole drawing system is probably not synced up right now. I also realized that my wavelet on wavelet collisions are still wrong.
+
+		\subsection*{Friday February 28}
+
+                I thought that I'd fixed wavelet on wavelet collisions but as I'm writing this I tested it again and it still has some issues. Barriers are also still not synced with how they're drawn but I think collisions work properly.
+
+	
+% ------ SECTION TIMELINE -------------------------------------
+	\newpage
+	\section*{Timeline}
+	\begin{tabular}{|p{1in}|p{2.5in}|p{2.5in}|}
+		\hline 
+	\textbf{Date} & \textbf{Goal} & \textbf{Met}\\ \hline
+		\hline
+		Today minus 2 weeks & Basic Wavelets and collisions & Yes\\
+		\hline
+		Today minus 1 weeks & Working wave on wave simulation & I think I'm getting close\\
+		\hline
+		Today  & Adjustable barriers & Not really; graphics aren't sync'd and there's no creation UI\\
+		\hline
+		Today plus 1 week & Fix barriers and add creation UI &  \\
+		\hline
+		Today plus 2 weeks & Start working on wave generators & I think I just need line and circle generators, maybe also semicircles?\\
+		\hline
+	\end{tabular}
+
+
+% ------ SECTION REFLECTION  -------------------------------------
+	\section*{Reflection}
+			In narrative style, talk about your work this week. Successes, failures, changes to timeline, goals. This should also
+			include concrete data, e.g. snippets of code, screenshots, output, analysis, graphs, etc.
+
+                        Wavelet on wavelet collision is a lot harder than I thought it would be. Earlier in the year I kind of just thought I'd use the same collision math from my mechanics simulator, but waves can pass through each other. Since they pass through each other, I have to use spring forces or something else instead of impulses, and it makes the energy of the system pretty prone to exploding. Attempting to sync barrier collisions with their graphics is very annoying.
+
+         \section*{Year End Goals}
+
+         I will present my mechanics, gravitation, and wave simulators. I think that the gravitation sim is more or less good how it is, and, unfortunately I doubt that I'll be able to fix the mechanics sim's collisions and also the wave sim, so I think it's best to finish the wavesim and restrict the mechanics sim to only circles. It definitely cuts down on the useability of the sim though. The wavesim also might be difficult to get as polished as the gravitation sim although I'm optimistic since I don't think it needs as much UI stuff. 
+         I also have to polish/update the various github repos and make a few tutorials for each sim since after some testing on my friends they're not quite completely obvious. I'm not sure if I'll do video tutorials or written tutorials with lots of gifs. Ideally, I could have in-program tutorials but that's not very feasible.
+
+         For an A, I think I should have a workable mechanics sim restricted to circles, my gravitation sim with a few tweaks, and a workable if not polished wave sim, along with a github with gifs/tutorials and a detailed final paper and presentation (I have some questions about the presentation).
+         For a B, I think I should have my mechanics and gravitation sim as they are now, and a partially working wave sim, along with a github, final paper, etc. as I said for an A.
+         For a C, I think I should have a partially working (but less than 50\%) wavesim, a detailed github with gifs but not necessarily complete tutorials, and a final paper and presentation.
+\end{document}

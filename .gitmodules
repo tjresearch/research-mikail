@@ -4,3 +4,6 @@
 [submodule "gravity-sim-v2"]
 	path = gravity-sim-v2
 	url = git@github.com:mkhan45/gravity-sim-v2.git
+[submodule "wavesim"]
+	path = wavesim
+	url = git@github.com:mkhan45/wavesim.git
