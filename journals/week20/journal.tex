@@ -1,0 +1,77 @@
+% Syslab Research Journal Template
+% By Patrick White
+% September 2019
+% version 1.1 - 9/5/2019
+
+% INSTRUCTIONS: Edit the file as appropriate and replace with your journal text. Do NOT edit
+%							any section headers or titles, tabling commands, fonts, spacing, sizes, etc.
+
+% -------  Do NOT edit this header
+\documentclass[letterpaper,11pt]{article}
+\usepackage[paperwidth=8.5in,left=1.0in,right=1.0in,top=1.0in,bottom=1.0in,paperheight=11.0in]{geometry}
+\usepackage{graphicx}
+\graphicspath{ {./} }
+\usepackage{palatino}
+\def\hrulefill{\leavevmode\leaders\hrule height 20pt\hfill\kern\z@}
+
+% ------------- DO Edit these definitions ---------------------
+\def\name{Mikail Khan}
+\def\period{5}
+\def\journalnum{20}
+\def\daterange{3/2/19-3/6/19}
+% ------------------ END ---------------------------------
+
+% Do NOT edit this
+\begin{document}
+	\thispagestyle{empty}
+	\begin{flushright}
+		{\Large Journal Report \journalnum} \\
+		\daterange\\
+		\name \\
+		Computer Systems Research Lab \\
+		Period \period, White
+		\end{flushright}
+	\hrule height 1pt
+% ------------------ END ---------------------------------%	
+	
+% ------------------- Begin Journal reporting HERE ---------------
+
+% ------ SECTION DAILY LOG -------------------------------------
+	\section*{Daily Log}
+
+	\vspace{-0.5em}
+		\subsection*{Monday March 2}
+                Monday was a blue day but I adjusted collision stuff over the weekend. It seems like it works most of the time but sometimes things explode.
+		\subsection*{Wednesday March 4}
+                I looked into moving everything to the web. I already told you in person, but essentially what I found was that I'd have to write a graphics backend for the GUI library to work with WASM but it's likely that when the game engine officially supports WASM someone else will be pretty quick to write one. 
+		\subsection*{Friday March 6}
+                I looked more into WASM stuff and also fixed barrier positioning. I also looked into making a shader for the wavesim that combines groups of wavelets into a continous wave graphically. Right now there can only be around 1500 wavelets before it gets laggy, so I definitely think it's important to have a shader for it. As it turns out, WASM does support compute shaders, but the game engine doesn't without a bit of modding. I think I'll write a GPU accelerated gravity sim sometime but I don't think I'll add a GUI or anything.
+
+	
+% ------ SECTION TIMELINE -------------------------------------
+	\newpage
+	\section*{Timeline}
+	\begin{tabular}{|p{1in}|p{2.5in}|p{2.5in}|}
+		\hline 
+	\textbf{Date} & \textbf{Goal} & \textbf{Met}\\ \hline
+		\hline
+		Today minus 2 weeks & Working wawve on wave sim & Almost\\
+		\hline
+		Today minus 1 weeks & Adjustable barriers & Not adjustable \\
+		\hline
+		Today  & Fix barriers and add creation UI & No, I kind of worked on other stuff\\
+		\hline
+		Today plus 1 week & Fix barriers and add creation UI &  \\
+		\hline
+		Today plus 2 weeks & Start working on wave generators &  \\
+		\hline
+	\end{tabular}
+
+
+% ------ SECTION REFLECTION  -------------------------------------
+	\section*{Reflection}
+			In narrative style, talk about your work this week. Successes, failures, changes to timeline, goals. This should also
+			include concrete data, e.g. snippets of code, screenshots, output, analysis, graphs, etc.
+
+                        When I was making the weekly goals I didn't realize that this was a 2 day week. I started looking into WASM stuff because recently there's been a lot of commits in the game engine that are dedicated to it, so I thought I might finally be able to port. Wave on wave collision still looks kind of weird but it will be hard to tell if they're properly following wave laws until I add generators that can create waves at a set frequency.
+\end{document}
