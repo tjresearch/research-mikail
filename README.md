@@ -1,6 +1,8 @@
 # Physics Simulators to Help Learn Physics
 A set of physics simulators, one for each approximate unit of physics: mechanics, universal gravitation, electronics and magnetism, and waves
 
+This repo is now outdated, see https://github.com/mkhan45/SIMple-Physics instead
+
 ## [physics-engine](https://github.com/mkhan45/physics-engine)
 Rigidbody mechanics simulator, currently simultaneous collisions are pretty jittery
 
